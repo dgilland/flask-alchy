@@ -1,7 +1,4 @@
 
-# remove once alchy released to pypi
-import sys; sys.path.append('../alchy')
-
 from unittest import TestCase
 
 from flask import Flask
