@@ -1,4 +1,6 @@
 
+__version__ = '0.1.0'
+
 from flask.ext.sqlalchemy import SQLAlchemy
 
 from alchy import make_declarative_base, Query, ManagerBase
