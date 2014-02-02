@@ -1,6 +1,9 @@
 
 from unittest import TestCase
 
+from sqlalchemy import Column, types
+from sqlalchemy.ext.declarative import declarative_base
+
 from flask import Flask
 from flask.ext.alchy import FlaskAlchy
 from flask.ext.sqlalchemy import SQLAlchemy, BaseQuery
@@ -33,6 +36,31 @@ class TestFlaskAlchy(TestCase):
 
         self.assertEquals(db.Model.__dict__['__init__'], alchy.model.ModelBase.__init__)
         self.assertIsInstance(db.Model.__dict__['query'], alchy.model.QueryProperty)
+
+    def test_override_model_class(self):
+        """Test that base model class can be overridden with custom class"""
+        class MyModelBase(object):
+            def testing(self):
+                return 'testing'
+
+        Model = declarative_base(cls=MyModelBase)
+
+        class Foo(Model):
+            __tablename__ = 'foo'
+            _id = Column(types.Integer(), primary_key=True)
+            name = Column(types.String())
+
+        db = FlaskAlchy(self.app, Model=Model)
+
+        self.assertTrue(issubclass(db.Model, MyModelBase), 'db.Model should be a subclass of MyModelBase')
+
+        db.create_all()
+
+        self.assertEquals(db.session.query(Foo).all(), Foo.query.all(), 'Model classes should have a query property')
+
+        record = Foo(name='Name')
+
+        self.assertEquals(record.testing(), 'testing')
 
     def test_flask_alchy_subclasses(self):
         """Test that flask-alchy subclasses from flask-sqlalchemy and alchy"""
