@@ -11,7 +11,7 @@ from setuptools import setup
 
 setup(
     name = 'flask-alchy',
-    version = '0.1.0',
+    version = '0.2.0',
     url = 'https://github.com/dgilland/flask-alchy',
     license = 'MIT',
     author = 'Derrick Gilland',
