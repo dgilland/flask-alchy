@@ -3,9 +3,10 @@ __version__ = '0.2.0'
 
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from alchy import make_declarative_base, Query, ManagerBase
+from alchy import make_declarative_base, Query, ManagerMixin
 
-class FlaskAlchy(SQLAlchemy, ManagerBase):
+
+class FlaskAlchy(SQLAlchemy, ManagerMixin):
     def __init__(self, app=None, use_native_unicode=True, session_options=None, Model=None):
         if session_options is None:
             session_options = {}
