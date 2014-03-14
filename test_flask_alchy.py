@@ -64,5 +64,5 @@ class TestFlaskAlchy(TestCase):
 
     def test_flask_alchy_subclasses(self):
         """Test that flask-alchy subclasses from flask-sqlalchemy and alchy"""
-        self.assertTrue(issubclass(FlaskAlchy, (SQLAlchemy, alchy.ManagerBase)))
+        self.assertTrue(issubclass(FlaskAlchy, (SQLAlchemy, alchy.ManagerMixin)))
 
