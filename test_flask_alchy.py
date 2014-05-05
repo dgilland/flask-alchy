@@ -20,8 +20,8 @@ class TestFlaskAlchy(TestCase):
         """Test that session options default to query_cls=alchy.Query"""
         db = FlaskAlchy(self.app)
 
-        self.assertEquals(db.Query, alchy.Query)
-        self.assertIsInstance(db.session.query(), alchy.Query)
+        self.assertEquals(db.Query, alchy.QueryModel)
+        self.assertIsInstance(db.session.query(), alchy.QueryModel)
 
     def test_override_query_class(self):
         """Test that session query class can be overridden"""
@@ -35,7 +35,7 @@ class TestFlaskAlchy(TestCase):
         db = FlaskAlchy(self.app)
 
         self.assertEquals(db.Model.__dict__['__init__'], alchy.model.ModelBase.__init__)
-        self.assertIsInstance(db.Model.__dict__['query'], alchy.model.QueryProperty)
+        self.assertIsInstance(db.Model.__dict__['query'], alchy.query.QueryProperty)
 
     def test_override_model_class(self):
         """Test that base model class can be overridden with custom class"""

@@ -1,4 +1,4 @@
-alchy>=0.7.0
+alchy>=0.11.2
 Flask-SQLAlchemy>=1.0
 pytest>=2.5.2
 twine>=1.2.2

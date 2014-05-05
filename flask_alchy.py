@@ -7,7 +7,7 @@ __author__ = 'Derrick Gilland <dgilland@gmail.com>'
 
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from alchy import make_declarative_base, Query, ManagerMixin
+from alchy import make_declarative_base, QueryModel, ManagerMixin
 
 
 class FlaskAlchy(SQLAlchemy, ManagerMixin):
@@ -15,7 +15,7 @@ class FlaskAlchy(SQLAlchemy, ManagerMixin):
         if session_options is None:
             session_options = {}
 
-        session_options.setdefault('query_cls', Query)
+        session_options.setdefault('query_cls', QueryModel)
 
         self.Model = Model
 

@@ -20,7 +20,7 @@ setup(
     long_description=__doc__,
     py_modules=['flask_alchy'],
     install_requires=[
-        'alchy>=0.7.0',
+        'alchy>=0.11.2',
         'Flask-SQLAlchemy>=1.0'
     ],
     test_suite='test_flask_alchy',
