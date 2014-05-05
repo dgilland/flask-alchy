@@ -1,8 +1,8 @@
 """
 flask-alchy
------
+===========
 
-Flask extension for alchy (the SQLAlchemy enhancement library).
+Flask extension for alchy (The declarative companion to SQLAlchemy).
 
 Documentation: https://github.com/dgilland/flask-alchy
 """
