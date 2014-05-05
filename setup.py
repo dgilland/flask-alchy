@@ -10,8 +10,8 @@ Documentation: https://github.com/dgilland/flask-alchy
 from setuptools import setup
 
 setup(
-    name='flask-alchy',
-    version='0.2.1',
+    name='Flask-Alchy',
+    version='0.3.0',
     url='https://github.com/dgilland/flask-alchy',
     license='MIT',
     author='Derrick Gilland',
