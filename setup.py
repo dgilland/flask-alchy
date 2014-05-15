@@ -11,7 +11,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Alchy',
-    version='0.3.0',
+    version='0.4.0',
     url='https://github.com/dgilland/flask-alchy',
     license='MIT',
     author='Derrick Gilland',
@@ -20,7 +20,7 @@ setup(
     long_description=__doc__,
     py_modules=['flask_alchy'],
     install_requires=[
-        'alchy>=0.11.2',
+        'alchy>=0.11.3',
         'Flask-SQLAlchemy>=1.0'
     ],
     test_suite='test_flask_alchy',
