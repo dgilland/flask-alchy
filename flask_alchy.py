@@ -16,7 +16,8 @@ class Alchy(SQLAlchemy, ManagerMixin):
                  app=None,
                  use_native_unicode=True,
                  session_options=None,
-                 Model=None):
+                 Model=None,
+                 metadata=None):
         if session_options is None:
             session_options = {}
 
@@ -25,13 +26,13 @@ class Alchy(SQLAlchemy, ManagerMixin):
         self.Model = Model
 
         super(Alchy, self).__init__(
-            app, use_native_unicode, session_options)
+            app, use_native_unicode, session_options, metadata=metadata)
 
         self.Query = session_options['query_cls']
 
-    def make_declarative_base(self):
+    def make_declarative_base(self, metadata=None):
         """Override parent function with alchy's"""
-        return make_declarative_base(self.session, Model=self.Model)
+        return make_declarative_base(self.session, Model=self.Model, metadata=metadata)
 
     def __getattr__(self, attr):
         """Delegate all other attributes to self.session"""
