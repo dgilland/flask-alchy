@@ -1,5 +1,5 @@
-Flask-SQLAlchemy>=1.0
-alchy>=0.11.3
+Flask-SQLAlchemy>=2.1.0
+alchy>=2.2.0
 pylint>=1.2.1
 pytest>=2.5.2
 twine>=1.3.1
