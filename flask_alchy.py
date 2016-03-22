@@ -32,7 +32,8 @@ class Alchy(SQLAlchemy, ManagerMixin):
 
     def make_declarative_base(self, metadata=None):
         """Override parent function with alchy's"""
-        return make_declarative_base(self.session, Model=self.Model,
+        return make_declarative_base(self.session,
+                                     Model=self.Model,
                                      metadata=metadata)
 
     def __getattr__(self, attr):
